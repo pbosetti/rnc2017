@@ -73,3 +73,5 @@ Next, install full ruby environment and necessary libraries and utilities. You c
 $ sudo apt-get install ruby ruby-dev git clang make gnuplot curl libreadline6-dev libssl-dev zlib1g-dev libglew-dev libglu1-mesa-dev freeglut3-dev ntp
 $ sudo gem install pry colorize ffi gnuplotr rake --no-rdoc --no-ri
 ```
+
+Take another VirtualBox snapshot here.
