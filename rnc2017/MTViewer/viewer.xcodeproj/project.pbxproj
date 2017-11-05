@@ -1,0 +1,582 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8840182516A70287002C5CD7 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88A9DE3F168346DC0085CB3C /* AppKit.framework */; };
+		88A9DE28168344380085CB3C /* LoadOGL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 88A9DDF5168343520085CB3C /* LoadOGL.cpp */; };
+		88A9DE29168344380085CB3C /* LoadOGLCore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 88A9DDF7168343520085CB3C /* LoadOGLCore.cpp */; };
+		88A9DE2A168344380085CB3C /* TwBar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 88A9DDF9168343520085CB3C /* TwBar.cpp */; };
+		88A9DE2B168344380085CB3C /* TwColors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 88A9DDFB168343520085CB3C /* TwColors.cpp */; };
+		88A9DE2C168344380085CB3C /* TwEventGLFW.c in Sources */ = {isa = PBXBuildFile; fileRef = 88A9DDFD168343520085CB3C /* TwEventGLFW.c */; };
+		88A9DE2D168344380085CB3C /* TwEventGLUT.c in Sources */ = {isa = PBXBuildFile; fileRef = 88A9DDFE168343520085CB3C /* TwEventGLUT.c */; };
+		88A9DE2E168344380085CB3C /* TwEventSDL.c in Sources */ = {isa = PBXBuildFile; fileRef = 88A9DDFF168343520085CB3C /* TwEventSDL.c */; };
+		88A9DE2F168344380085CB3C /* TwEventSDL12.c in Sources */ = {isa = PBXBuildFile; fileRef = 88A9DE00168343520085CB3C /* TwEventSDL12.c */; };
+		88A9DE30168344380085CB3C /* TwEventSDL13.c in Sources */ = {isa = PBXBuildFile; fileRef = 88A9DE01168343520085CB3C /* TwEventSDL13.c */; };
+		88A9DE31168344380085CB3C /* TwEventSFML.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 88A9DE02168343520085CB3C /* TwEventSFML.cpp */; };
+		88A9DE33168344380085CB3C /* TwFonts.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 88A9DE04168343520085CB3C /* TwFonts.cpp */; };
+		88A9DE34168344380085CB3C /* TwMgr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 88A9DE06168343520085CB3C /* TwMgr.cpp */; };
+		88A9DE35168344380085CB3C /* TwOpenGL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 88A9DE08168343520085CB3C /* TwOpenGL.cpp */; };
+		88A9DE36168344380085CB3C /* TwOpenGLCore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 88A9DE0A168343520085CB3C /* TwOpenGLCore.cpp */; };
+		88A9DE37168344380085CB3C /* TwPrecomp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 88A9DE0C168343520085CB3C /* TwPrecomp.cpp */; };
+		88A9DE381683444F0085CB3C /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 886D25B216777AB6006270FD /* GLUT.framework */; };
+		88A9DE391683444F0085CB3C /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 886D25B016777A6A006270FD /* OpenGL.framework */; };
+		88A9DE40168346DC0085CB3C /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88A9DE3F168346DC0085CB3C /* AppKit.framework */; };
+		88A9DE5016834F5F0085CB3C /* LoadOGL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 88A9DDF5168343520085CB3C /* LoadOGL.cpp */; };
+		88A9DE5116834F5F0085CB3C /* LoadOGLCore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 88A9DDF7168343520085CB3C /* LoadOGLCore.cpp */; };
+		88A9DE5216834F5F0085CB3C /* TwBar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 88A9DDF9168343520085CB3C /* TwBar.cpp */; };
+		88A9DE5316834F5F0085CB3C /* TwColors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 88A9DDFB168343520085CB3C /* TwColors.cpp */; };
+		88A9DE5416834F5F0085CB3C /* TwEventGLFW.c in Sources */ = {isa = PBXBuildFile; fileRef = 88A9DDFD168343520085CB3C /* TwEventGLFW.c */; };
+		88A9DE5516834F5F0085CB3C /* TwEventGLUT.c in Sources */ = {isa = PBXBuildFile; fileRef = 88A9DDFE168343520085CB3C /* TwEventGLUT.c */; };
+		88A9DE5616834F5F0085CB3C /* TwEventSDL.c in Sources */ = {isa = PBXBuildFile; fileRef = 88A9DDFF168343520085CB3C /* TwEventSDL.c */; };
+		88A9DE5716834F5F0085CB3C /* TwEventSDL12.c in Sources */ = {isa = PBXBuildFile; fileRef = 88A9DE00168343520085CB3C /* TwEventSDL12.c */; };
+		88A9DE5816834F5F0085CB3C /* TwEventSDL13.c in Sources */ = {isa = PBXBuildFile; fileRef = 88A9DE01168343520085CB3C /* TwEventSDL13.c */; };
+		88A9DE5916834F5F0085CB3C /* TwEventSFML.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 88A9DE02168343520085CB3C /* TwEventSFML.cpp */; };
+		88A9DE5A16834F5F0085CB3C /* TwFonts.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 88A9DE04168343520085CB3C /* TwFonts.cpp */; };
+		88A9DE5B16834F5F0085CB3C /* TwMgr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 88A9DE06168343520085CB3C /* TwMgr.cpp */; };
+		88A9DE5C16834F5F0085CB3C /* TwOpenGL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 88A9DE08168343520085CB3C /* TwOpenGL.cpp */; };
+		88A9DE5D16834F5F0085CB3C /* TwOpenGLCore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 88A9DE0A168343520085CB3C /* TwOpenGLCore.cpp */; };
+		88A9DE5E16834F5F0085CB3C /* TwPrecomp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 88A9DE0C168343520085CB3C /* TwPrecomp.cpp */; };
+		88A9DE5F16834F6D0085CB3C /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88A9DE3F168346DC0085CB3C /* AppKit.framework */; };
+		88A9DE6016834F6D0085CB3C /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 886D25B216777AB6006270FD /* GLUT.framework */; };
+		88A9DE6116834F6D0085CB3C /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 886D25B016777A6A006270FD /* OpenGL.framework */; };
+		88BF2A3816A44AF2008333C6 /* libAntTweakBar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88A9DE24168343DE0085CB3C /* libAntTweakBar.a */; };
+		88BF2A3C16A44B0A008333C6 /* NewViewer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 88BF2A3416A448E0008333C6 /* NewViewer.cpp */; };
+		88BF2A3E16A44B16008333C6 /* MachineTool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8892BABF169AF50600A7D945 /* MachineTool.cpp */; };
+		88E69725169D97A7006E0950 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 886D25B216777AB6006270FD /* GLUT.framework */; };
+		88E69726169D97AD006E0950 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 886D25B016777A6A006270FD /* OpenGL.framework */; };
+		88E6972C169EBC41006E0950 /* LinearAxis.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 88E69702169B32F7006E0950 /* LinearAxis.cpp */; };
+		88E6972E169EBC44006E0950 /* Prism.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 884BDEE6168DDEED00E066DE /* Prism.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		88BF2A4416A4504A008333C6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 886D259816777A2E006270FD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 88A9DE23168343DE0085CB3C;
+			remoteInfo = "AntTweakBar(static)";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		88E69718169D96EE006E0950 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		884BDEE6168DDEED00E066DE /* Prism.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Prism.cpp; sourceTree = "<group>"; };
+		884BDEE7168DDEED00E066DE /* Prism.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prism.h; sourceTree = "<group>"; };
+		886D25B016777A6A006270FD /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		886D25B216777AB6006270FD /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
+		8892BABF169AF50600A7D945 /* MachineTool.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MachineTool.cpp; sourceTree = "<group>"; };
+		8892BAC0169AF50600A7D945 /* MachineTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MachineTool.h; sourceTree = "<group>"; };
+		88A9DDF5168343520085CB3C /* LoadOGL.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = LoadOGL.cpp; sourceTree = "<group>"; };
+		88A9DDF6168343520085CB3C /* LoadOGL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoadOGL.h; sourceTree = "<group>"; };
+		88A9DDF7168343520085CB3C /* LoadOGLCore.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = LoadOGLCore.cpp; sourceTree = "<group>"; };
+		88A9DDF8168343520085CB3C /* LoadOGLCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoadOGLCore.h; sourceTree = "<group>"; };
+		88A9DDF9168343520085CB3C /* TwBar.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = TwBar.cpp; sourceTree = "<group>"; };
+		88A9DDFA168343520085CB3C /* TwBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TwBar.h; sourceTree = "<group>"; };
+		88A9DDFB168343520085CB3C /* TwColors.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = TwColors.cpp; sourceTree = "<group>"; };
+		88A9DDFC168343520085CB3C /* TwColors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TwColors.h; sourceTree = "<group>"; };
+		88A9DDFD168343520085CB3C /* TwEventGLFW.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = TwEventGLFW.c; sourceTree = "<group>"; };
+		88A9DDFE168343520085CB3C /* TwEventGLUT.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = TwEventGLUT.c; sourceTree = "<group>"; };
+		88A9DDFF168343520085CB3C /* TwEventSDL.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = TwEventSDL.c; sourceTree = "<group>"; };
+		88A9DE00168343520085CB3C /* TwEventSDL12.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = TwEventSDL12.c; sourceTree = "<group>"; };
+		88A9DE01168343520085CB3C /* TwEventSDL13.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = TwEventSDL13.c; sourceTree = "<group>"; };
+		88A9DE02168343520085CB3C /* TwEventSFML.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TwEventSFML.cpp; sourceTree = "<group>"; };
+		88A9DE03168343520085CB3C /* TwEventX11.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = TwEventX11.c; sourceTree = "<group>"; };
+		88A9DE04168343520085CB3C /* TwFonts.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = TwFonts.cpp; sourceTree = "<group>"; };
+		88A9DE05168343520085CB3C /* TwFonts.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TwFonts.h; sourceTree = "<group>"; };
+		88A9DE06168343520085CB3C /* TwMgr.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = TwMgr.cpp; sourceTree = "<group>"; };
+		88A9DE07168343520085CB3C /* TwMgr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TwMgr.h; sourceTree = "<group>"; };
+		88A9DE08168343520085CB3C /* TwOpenGL.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = TwOpenGL.cpp; sourceTree = "<group>"; };
+		88A9DE09168343520085CB3C /* TwOpenGL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TwOpenGL.h; sourceTree = "<group>"; };
+		88A9DE0A168343520085CB3C /* TwOpenGLCore.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = TwOpenGLCore.cpp; sourceTree = "<group>"; };
+		88A9DE0B168343520085CB3C /* TwOpenGLCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TwOpenGLCore.h; sourceTree = "<group>"; };
+		88A9DE0C168343520085CB3C /* TwPrecomp.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = TwPrecomp.cpp; sourceTree = "<group>"; };
+		88A9DE0D168343520085CB3C /* TwPrecomp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TwPrecomp.h; sourceTree = "<group>"; };
+		88A9DE0F168343800085CB3C /* AntTweakBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AntTweakBar.h; sourceTree = "<group>"; };
+		88A9DE14168343B10085CB3C /* libAntTweakBar.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libAntTweakBar.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		88A9DE24168343DE0085CB3C /* libAntTweakBar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAntTweakBar.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		88A9DE3A168345C50085CB3C /* MiniGLFW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiniGLFW.h; sourceTree = "<group>"; };
+		88A9DE3B168345C50085CB3C /* MiniGLUT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiniGLUT.h; sourceTree = "<group>"; };
+		88A9DE3C168345C50085CB3C /* MiniSDL12.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiniSDL12.h; sourceTree = "<group>"; };
+		88A9DE3D168345C50085CB3C /* MiniSDL13.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiniSDL13.h; sourceTree = "<group>"; };
+		88A9DE3E168345C50085CB3C /* MiniSFML16.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiniSFML16.h; sourceTree = "<group>"; };
+		88A9DE3F168346DC0085CB3C /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		88A9DE4E16834E890085CB3C /* TwGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwGraph.h; sourceTree = "<group>"; };
+		88A9DE4F16834ECC0085CB3C /* AntPerfTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AntPerfTimer.h; sourceTree = "<group>"; };
+		88BF2A3416A448E0008333C6 /* NewViewer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = NewViewer.cpp; sourceTree = "<group>"; };
+		88BF2A3516A448E0008333C6 /* NewViewer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewViewer.h; sourceTree = "<group>"; };
+		88E69702169B32F7006E0950 /* LinearAxis.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LinearAxis.cpp; sourceTree = "<group>"; };
+		88E69703169B32F7006E0950 /* LinearAxis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinearAxis.h; sourceTree = "<group>"; };
+		88E6971A169D96EE006E0950 /* MTviewer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MTviewer; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		88A9DE11168343B10085CB3C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88A9DE40168346DC0085CB3C /* AppKit.framework in Frameworks */,
+				88A9DE381683444F0085CB3C /* GLUT.framework in Frameworks */,
+				88A9DE391683444F0085CB3C /* OpenGL.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88A9DE21168343DE0085CB3C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88A9DE5F16834F6D0085CB3C /* AppKit.framework in Frameworks */,
+				88A9DE6016834F6D0085CB3C /* GLUT.framework in Frameworks */,
+				88A9DE6116834F6D0085CB3C /* OpenGL.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88E69717169D96EE006E0950 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8840182516A70287002C5CD7 /* AppKit.framework in Frameworks */,
+				88E69725169D97A7006E0950 /* GLUT.framework in Frameworks */,
+				88E69726169D97AD006E0950 /* OpenGL.framework in Frameworks */,
+				88BF2A3816A44AF2008333C6 /* libAntTweakBar.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		886D259616777A2E006270FD = {
+			isa = PBXGroup;
+			children = (
+				88A9DE3F168346DC0085CB3C /* AppKit.framework */,
+				886D25B216777AB6006270FD /* GLUT.framework */,
+				886D25B016777A6A006270FD /* OpenGL.framework */,
+				886D25A416777A2E006270FD /* viewer */,
+				88A9DDF4168343520085CB3C /* AntTweakBar */,
+				886D25A216777A2E006270FD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		886D25A216777A2E006270FD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				88A9DE14168343B10085CB3C /* libAntTweakBar.dylib */,
+				88A9DE24168343DE0085CB3C /* libAntTweakBar.a */,
+				88E6971A169D96EE006E0950 /* MTviewer */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		886D25A416777A2E006270FD /* viewer */ = {
+			isa = PBXGroup;
+			children = (
+				88BF2A3416A448E0008333C6 /* NewViewer.cpp */,
+				88BF2A3516A448E0008333C6 /* NewViewer.h */,
+				8892BABF169AF50600A7D945 /* MachineTool.cpp */,
+				8892BAC0169AF50600A7D945 /* MachineTool.h */,
+				884BDEE6168DDEED00E066DE /* Prism.cpp */,
+				884BDEE7168DDEED00E066DE /* Prism.h */,
+				88E69702169B32F7006E0950 /* LinearAxis.cpp */,
+				88E69703169B32F7006E0950 /* LinearAxis.h */,
+			);
+			path = viewer;
+			sourceTree = "<group>";
+		};
+		88A9DDF4168343520085CB3C /* AntTweakBar */ = {
+			isa = PBXGroup;
+			children = (
+				88A9DE4F16834ECC0085CB3C /* AntPerfTimer.h */,
+				88A9DE4E16834E890085CB3C /* TwGraph.h */,
+				88A9DE3A168345C50085CB3C /* MiniGLFW.h */,
+				88A9DE3B168345C50085CB3C /* MiniGLUT.h */,
+				88A9DE3C168345C50085CB3C /* MiniSDL12.h */,
+				88A9DE3D168345C50085CB3C /* MiniSDL13.h */,
+				88A9DE3E168345C50085CB3C /* MiniSFML16.h */,
+				88A9DE0F168343800085CB3C /* AntTweakBar.h */,
+				88A9DDF5168343520085CB3C /* LoadOGL.cpp */,
+				88A9DDF6168343520085CB3C /* LoadOGL.h */,
+				88A9DDF7168343520085CB3C /* LoadOGLCore.cpp */,
+				88A9DDF8168343520085CB3C /* LoadOGLCore.h */,
+				88A9DDF9168343520085CB3C /* TwBar.cpp */,
+				88A9DDFA168343520085CB3C /* TwBar.h */,
+				88A9DDFB168343520085CB3C /* TwColors.cpp */,
+				88A9DDFC168343520085CB3C /* TwColors.h */,
+				88A9DDFD168343520085CB3C /* TwEventGLFW.c */,
+				88A9DDFE168343520085CB3C /* TwEventGLUT.c */,
+				88A9DDFF168343520085CB3C /* TwEventSDL.c */,
+				88A9DE00168343520085CB3C /* TwEventSDL12.c */,
+				88A9DE01168343520085CB3C /* TwEventSDL13.c */,
+				88A9DE02168343520085CB3C /* TwEventSFML.cpp */,
+				88A9DE03168343520085CB3C /* TwEventX11.c */,
+				88A9DE04168343520085CB3C /* TwFonts.cpp */,
+				88A9DE05168343520085CB3C /* TwFonts.h */,
+				88A9DE06168343520085CB3C /* TwMgr.cpp */,
+				88A9DE07168343520085CB3C /* TwMgr.h */,
+				88A9DE08168343520085CB3C /* TwOpenGL.cpp */,
+				88A9DE09168343520085CB3C /* TwOpenGL.h */,
+				88A9DE0A168343520085CB3C /* TwOpenGLCore.cpp */,
+				88A9DE0B168343520085CB3C /* TwOpenGLCore.h */,
+				88A9DE0C168343520085CB3C /* TwPrecomp.cpp */,
+				88A9DE0D168343520085CB3C /* TwPrecomp.h */,
+			);
+			path = AntTweakBar;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		88A9DE12168343B10085CB3C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88A9DE22168343DE0085CB3C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		88A9DE13168343B10085CB3C /* AntTweakBar(dyn) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 88A9DE15168343B10085CB3C /* Build configuration list for PBXNativeTarget "AntTweakBar(dyn)" */;
+			buildPhases = (
+				88A9DE10168343B10085CB3C /* Sources */,
+				88A9DE11168343B10085CB3C /* Frameworks */,
+				88A9DE12168343B10085CB3C /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "AntTweakBar(dyn)";
+			productName = AntTweakBar;
+			productReference = 88A9DE14168343B10085CB3C /* libAntTweakBar.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+		88A9DE23168343DE0085CB3C /* AntTweakBar(static) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 88A9DE25168343DE0085CB3C /* Build configuration list for PBXNativeTarget "AntTweakBar(static)" */;
+			buildPhases = (
+				88A9DE20168343DE0085CB3C /* Sources */,
+				88A9DE21168343DE0085CB3C /* Frameworks */,
+				88A9DE22168343DE0085CB3C /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "AntTweakBar(static)";
+			productName = AntTweakBar;
+			productReference = 88A9DE24168343DE0085CB3C /* libAntTweakBar.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		88E69719169D96EE006E0950 /* MTviewer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 88E69723169D96EE006E0950 /* Build configuration list for PBXNativeTarget "MTviewer" */;
+			buildPhases = (
+				88E69716169D96EE006E0950 /* Sources */,
+				88E69717169D96EE006E0950 /* Frameworks */,
+				88E69718169D96EE006E0950 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				88BF2A4516A4504A008333C6 /* PBXTargetDependency */,
+			);
+			name = MTviewer;
+			productName = Test;
+			productReference = 88E6971A169D96EE006E0950 /* MTviewer */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		886D259816777A2E006270FD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = UniTN;
+			};
+			buildConfigurationList = 886D259B16777A2E006270FD /* Build configuration list for PBXProject "viewer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 886D259616777A2E006270FD;
+			productRefGroup = 886D25A216777A2E006270FD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				88E69719169D96EE006E0950 /* MTviewer */,
+				88A9DE13168343B10085CB3C /* AntTweakBar(dyn) */,
+				88A9DE23168343DE0085CB3C /* AntTweakBar(static) */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		88A9DE10168343B10085CB3C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88A9DE28168344380085CB3C /* LoadOGL.cpp in Sources */,
+				88A9DE29168344380085CB3C /* LoadOGLCore.cpp in Sources */,
+				88A9DE2A168344380085CB3C /* TwBar.cpp in Sources */,
+				88A9DE2B168344380085CB3C /* TwColors.cpp in Sources */,
+				88A9DE2C168344380085CB3C /* TwEventGLFW.c in Sources */,
+				88A9DE2D168344380085CB3C /* TwEventGLUT.c in Sources */,
+				88A9DE2E168344380085CB3C /* TwEventSDL.c in Sources */,
+				88A9DE2F168344380085CB3C /* TwEventSDL12.c in Sources */,
+				88A9DE30168344380085CB3C /* TwEventSDL13.c in Sources */,
+				88A9DE31168344380085CB3C /* TwEventSFML.cpp in Sources */,
+				88A9DE33168344380085CB3C /* TwFonts.cpp in Sources */,
+				88A9DE34168344380085CB3C /* TwMgr.cpp in Sources */,
+				88A9DE35168344380085CB3C /* TwOpenGL.cpp in Sources */,
+				88A9DE36168344380085CB3C /* TwOpenGLCore.cpp in Sources */,
+				88A9DE37168344380085CB3C /* TwPrecomp.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88A9DE20168343DE0085CB3C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88A9DE5016834F5F0085CB3C /* LoadOGL.cpp in Sources */,
+				88A9DE5116834F5F0085CB3C /* LoadOGLCore.cpp in Sources */,
+				88A9DE5216834F5F0085CB3C /* TwBar.cpp in Sources */,
+				88A9DE5316834F5F0085CB3C /* TwColors.cpp in Sources */,
+				88A9DE5416834F5F0085CB3C /* TwEventGLFW.c in Sources */,
+				88A9DE5516834F5F0085CB3C /* TwEventGLUT.c in Sources */,
+				88A9DE5616834F5F0085CB3C /* TwEventSDL.c in Sources */,
+				88A9DE5716834F5F0085CB3C /* TwEventSDL12.c in Sources */,
+				88A9DE5816834F5F0085CB3C /* TwEventSDL13.c in Sources */,
+				88A9DE5916834F5F0085CB3C /* TwEventSFML.cpp in Sources */,
+				88A9DE5A16834F5F0085CB3C /* TwFonts.cpp in Sources */,
+				88A9DE5B16834F5F0085CB3C /* TwMgr.cpp in Sources */,
+				88A9DE5C16834F5F0085CB3C /* TwOpenGL.cpp in Sources */,
+				88A9DE5D16834F5F0085CB3C /* TwOpenGLCore.cpp in Sources */,
+				88A9DE5E16834F5F0085CB3C /* TwPrecomp.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88E69716169D96EE006E0950 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88BF2A3C16A44B0A008333C6 /* NewViewer.cpp in Sources */,
+				88BF2A3E16A44B16008333C6 /* MachineTool.cpp in Sources */,
+				88E6972C169EBC41006E0950 /* LinearAxis.cpp in Sources */,
+				88E6972E169EBC44006E0950 /* Prism.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		88BF2A4516A4504A008333C6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 88A9DE23168343DE0085CB3C /* AntTweakBar(static) */;
+			targetProxy = 88BF2A4416A4504A008333C6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		886D25A916777A2E006270FD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		886D25AA16777A2E006270FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		88A9DE16168343B10085CB3C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = lib;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					_MACOSX,
+				);
+				HEADER_SEARCH_PATHS = /usr/X11R6/include;
+				PRODUCT_NAME = AntTweakBar;
+			};
+			name = Debug;
+		};
+		88A9DE17168343B10085CB3C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = lib;
+				GCC_PREPROCESSOR_DEFINITIONS = _MACOSX;
+				HEADER_SEARCH_PATHS = /usr/X11R6/include;
+				PRODUCT_NAME = AntTweakBar;
+			};
+			name = Release;
+		};
+		88A9DE26168343DE0085CB3C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = lib;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					_MACOSX,
+				);
+				HEADER_SEARCH_PATHS = /usr/X11R6/include;
+				PRODUCT_NAME = AntTweakBar;
+			};
+			name = Debug;
+		};
+		88A9DE27168343DE0085CB3C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = lib;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					_MACOSX,
+					"$(inherited)",
+				);
+				HEADER_SEARCH_PATHS = /usr/X11R6/include;
+				PRODUCT_NAME = AntTweakBar;
+			};
+			name = Release;
+		};
+		88E69721169D96EE006E0950 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEPLOYMENT_LOCATION = YES;
+				DEPLOYMENT_POSTPROCESSING = YES;
+				DSTROOT = "$(PROJECT_DIR)";
+				INSTALL_PATH = /mac;
+				LLVM_LTO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		88E69722169D96EE006E0950 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEPLOYMENT_LOCATION = YES;
+				DEPLOYMENT_POSTPROCESSING = YES;
+				DSTROOT = "$(PROJECT_DIR)";
+				INSTALL_PATH = /mac;
+				LLVM_LTO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = YES;
+				STRIP_STYLE = all;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		886D259B16777A2E006270FD /* Build configuration list for PBXProject "viewer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				886D25A916777A2E006270FD /* Debug */,
+				886D25AA16777A2E006270FD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		88A9DE15168343B10085CB3C /* Build configuration list for PBXNativeTarget "AntTweakBar(dyn)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88A9DE16168343B10085CB3C /* Debug */,
+				88A9DE17168343B10085CB3C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		88A9DE25168343DE0085CB3C /* Build configuration list for PBXNativeTarget "AntTweakBar(static)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88A9DE26168343DE0085CB3C /* Debug */,
+				88A9DE27168343DE0085CB3C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		88E69723169D96EE006E0950 /* Build configuration list for PBXNativeTarget "MTviewer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88E69721169D96EE006E0950 /* Debug */,
+				88E69722169D96EE006E0950 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 886D259816777A2E006270FD /* Project object */;
+}

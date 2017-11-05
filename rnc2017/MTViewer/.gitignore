@@ -1,0 +1,23 @@
+*.DS_Store
+xcuserdata
+*.orig
+/MTViewer
+/NewViewer
+
+doc/*
+.yardoc/
+DerivedData/
+
+#Template files:
+*_tpl.*
+
+#Object files:
+*.o
+
+#Test directory:
+test/*
+
+*.bak
+*.dll
+*.lib
+
