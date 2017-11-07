@@ -1,0 +1,18 @@
+ANSI codes for coloring strings in terminals:
+
+\e[NNmText to be colored\e[0m
+------                  ------
+Start color             Back to normal
+
+NN is a color code. Some colors are as follows:
+
+Color       NN(fg)  NN(bg)
+--------------------------
+black:      30      40
+red:        31      41
+green:      32      42
+brown:      33      43
+blue:       34      44
+magenta:    35      45
+cyan:       36      46
+gray:       37      47
