@@ -34,3 +34,19 @@ File.foreach(file_name) do |line|
   print "#{i}: #{line}"
   i += 1
 end
+
+
+# Yield
+
+def operate_twice(value)
+  raise "Need a block!" unless block_given?
+  yield value
+  yield value
+end
+
+# this printw twice the line "test"
+puts operate_twice("test") {|v| puts v}
+
+a = 0
+puts operate_twice(10) {|v| a += v}
+# now a == 20
