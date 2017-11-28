@@ -215,6 +215,8 @@ F#{@feed_rate || '-'} S#{@spindle_rate || '-'}]"
         dt_1 =  Math::sqrt(2 * l / (@cfg[:A] + @cfg[:A] ** 2 / @cfg[:D]))
         dt_2 = dt_1 * @cfg[:A] / @cfg[:D]
         q = quantize(dt_1 + dt_2)
+        dt_m = 0
+        dt_2 += q[1]
         f_m = 2 * l / (dt_1 + dt_2)
       end
       a = f_m / dt_1 # this is a*
