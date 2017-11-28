@@ -164,7 +164,7 @@ F#{@feed_rate || '-'} S#{@spindle_rate || '-'}]"
         next if line[0] == '#'
         b = Block.new(line).modal!(@blocks.last)
         b.profile  = @profiler.velocity_profile(b.feed_rate, b.length)
-        # later on wi will call it as b.profile.call(time)
+        # later on we will call it as b.profile.call(time)
         b.dt = @profiler.dt
         @blocks << b
       end
@@ -212,7 +212,7 @@ F#{@feed_rate || '-'} S#{@spindle_rate || '-'}]"
         dt_m += q[1] # this is dt_m*
         f_m = (2 * l) / (dt_1 + dt_2 + 2 * dt_m) # this is f_m*
       else # triangular profile
-        dt_1 =  Math::sqrt(2 * l / ((@cfg[:A] + @cfg[:A] ** 2 / @cfg[:D]))
+        dt_1 =  Math::sqrt(2 * l / (@cfg[:A] + @cfg[:A] ** 2 / @cfg[:D]))
         dt_2 = dt_1 * @cfg[:A] / @cfg[:D]
         q = quantize(dt_1 + dt_2)
         f_m = 2 * l / (dt_1 + dt_2)
@@ -239,7 +239,7 @@ F#{@feed_rate || '-'} S#{@spindle_rate || '-'}]"
           r = f_m * dt_1 / 2.0 + f_m * (dt_m + t - t_2) +
               d / 2.0 * (t ** 2 + t_2 ** 2) -d * t * t_2
         end
-        {s: r / l, type: type}
+        {s: r / l, r: r, type: type}
       end
 
 
@@ -251,7 +251,7 @@ F#{@feed_rate || '-'} S#{@spindle_rate || '-'}]"
         result = [t, 0.0]
       else
         result = []
-        result[0] = ((t / @cfg[:dt].to_i + 1)) * @cfg[:dt]
+        result[0] = ((t / @cfg[:tq]).to_i + 1) * @cfg[:tq]
         result[1] = result[0] - t
       end
       return result
@@ -263,7 +263,7 @@ F#{@feed_rate || '-'} S#{@spindle_rate || '-'}]"
   # Uses velocity profiles for synchronizing the motion of
   # machine axes
   class Interpolator
-    attr_reader :block
+    attr_accessor :block
 
     def initialize(cfg)
       @cfg = cfg
@@ -297,6 +297,7 @@ F#{@feed_rate || '-'} S#{@spindle_rate || '-'}]"
     def each_timestep
       t = 0.0
       while (cmd = self.eval(t)) do
+        break if @block.length == 0
         yield t, cmd
         t += @cfg[:tq]
       end
