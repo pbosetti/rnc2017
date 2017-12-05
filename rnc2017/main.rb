@@ -2,35 +2,38 @@
 
 require "./lib/rnc.rb"
 
-# development tests
+# Command line argument
+if ARGV.size != 1 then
+  puts "I need the name of the G-Code file as single argument!"
+  exit -1
+end
 
 # Configuration hash
-cfg = {
-  file_name: "test.iso",
-  A: 1000,
-  D: 1500,
+CFG = {
+  file_name: ARGV[0],
+  A: 10,
+  D: 15,
   tq: 0.005
 }
 
 # Create parser object and parse G-Code file
-parser = RNC::Parser.new(cfg)
-parser.parse_file
-p parser
+parser = RNC::Parser.new(CFG).parse_file
 
-# Prepare the Interpolator instance
-interp = RNC::Interpolator.new(cfg)
+colors = {A:1, M:2, D:3, R:0}
 
-# Loop over all blocks
-parser.each_block do |block, n|
-  p [n, block]
-  # Set current block in the Interpolator
-  interp.block = block
-  # Skip (for now) rapid blocks
-  next if block.type == :G00
-  # Loop within a block with the given timestep
-  interp.each_timestep do |t, cmd|
-    # CUSTOMIZE HERE: save the relevant info into a text file
-    # and use it for plotting
-    p [n, t, cmd]
+File.open("out.txt", "w") do |file|
+  # Loop over all blocks
+  file.puts "n t s r X Y Z color"
+  parser.each_block do |block, n|
+    p [n, block]
+    # Skip (for now) rapid blocks
+    next if block.type == :G00
+    # Loop within a block with the given timestep
+    block.each_timestep do |t, cmd|
+      # CUSTOMIZE HERE: save the relevant info into a text file
+      # and use it for plotting
+      file.puts "%d %.3f %.5f %.3f %.3f %.3f %.3f %d" % [n, t, cmd[:s], cmd[:r], cmd[:position][:X], cmd[:position][:Y], cmd[:position][:Z], colors[cmd[:type]]]
+    end
+    file.print "\n\n"
   end
 end

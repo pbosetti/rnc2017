@@ -86,7 +86,9 @@ module RNC
     attr_reader :length, :delta, :type
     attr_accessor :profile, :dt
 
-    def initialize(l='G00 X0 Y0 Z0 F1000 S1000')
+    def initialize(cfg, l='G00 X0 Y0 Z0 F1000 S1000')
+      raise "Need a configuration Hash" unless cfg.kind_of? Hash
+      @cfg = cfg
       @start = Point[]
       @target = Point[]
       @feed_rate = nil
@@ -139,9 +141,41 @@ module RNC
       return self
     end
 
+    def eval(t)
+      raise "invalid block" unless self.kind_of? Block
+      result = {}
+      case @type
+      when :G00
+        result[:position] = @target
+        result[:s] = 0.0
+        result[:type] = :R
+      when :G01
+        if (0..@dt).include? t then
+          result = @profile.call(t)
+          result[:position] = Point[]
+          [:X, :Y, :Z].each do |axis|
+            result[:position][axis] = @start[axis] + result[:s] * @delta[axis]
+          end
+        else
+          result = nil
+        end
+      else
+        raise "Unsupported G-Code command #{@type}!"
+      end
+      return result
+    end
+
+    def each_timestep
+      t = 0.0
+      while (cmd = self.eval(t)) do
+        break if @length == 0
+        yield t, cmd
+        t += @cfg[:tq]
+      end
+    end
+
     def inspect
-      return "[#{@type} #{@target} L#{@length.round(3)} \
-F#{@feed_rate || '-'} S#{@spindle_rate || '-'}]"
+      return "[#{@type} #{@target} L#{@length.round(3)} \F#{@feed_rate || '-'} S#{@spindle_rate || '-'}]"
     end
 
   end #class Block
@@ -153,7 +187,9 @@ F#{@feed_rate || '-'} S#{@spindle_rate || '-'}]"
     attr_reader :blocks, :file_name
 
     def initialize(cfg)
-      @blocks = [Block.new()]
+      raise "Need a configuration Hash" unless cfg.kind_of? Hash
+      @cfg = cfg
+      @blocks = [Block.new(@cfg)]
       @file_name = cfg[:file_name]
       @profiler = Profiler.new(cfg)
     end
@@ -162,12 +198,13 @@ F#{@feed_rate || '-'} S#{@spindle_rate || '-'}]"
       File.foreach(@file_name) do |line|
         next if line.length <= 1
         next if line[0] == '#'
-        b = Block.new(line).modal!(@blocks.last)
+        b = Block.new(@cfg, line).modal!(@blocks.last)
         b.profile  = @profiler.velocity_profile(b.feed_rate, b.length)
         # later on we will call it as b.profile.call(time)
         b.dt = @profiler.dt
         @blocks << b
       end
+      return self
     end
 
     def each_block
@@ -262,49 +299,5 @@ F#{@feed_rate || '-'} S#{@spindle_rate || '-'}]"
 
   end # class Profiler
 
-  # Uses velocity profiles for synchronizing the motion of
-  # machine axes
-  class Interpolator
-    attr_accessor :block
-
-    def initialize(cfg)
-      @cfg = cfg
-      @block = nil
-    end
-
-    def eval(t)
-      raise "invalid block" unless @block.kind_of? Block
-      result = {}
-      case @block.type
-      when :G00
-        result[:position] = @block.target
-        result[:s] = 0.0
-        result[:type] = :R
-      when :G01
-        if (0..@block.dt).include? t then
-          result = @block.profile.call(t)
-          result[:position] = Point[]
-          [:X, :Y, :Z].each do |axis|
-            result[:position][axis] = @block.start[axis] + result[:s] * @block.delta[axis]
-          end
-        else
-          result = nil
-        end
-      else
-        raise "Unsupported G-Code command #{@block.type}!"
-      end
-      return result
-    end
-
-    def each_timestep
-      t = 0.0
-      while (cmd = self.eval(t)) do
-        break if @block.length == 0
-        yield t, cmd
-        t += @cfg[:tq]
-      end
-    end
-
-  end # class Interpolator
 
 end # module RNC
