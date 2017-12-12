@@ -12,10 +12,11 @@ end
 
 # Configuration hash
 CFG = {
-  file_name: ARGV[0],
-  A: 10,
-  D: 15,
-  tq: 0.005
+  file_name: ARGV[0], # G-code input file
+  A: 200,              # Maximum acceleration
+  D: 300,              # Maximum deceleration
+  tq: 0.005,          # sampling time
+  tolerance: 0.005    # tolerance for G00 end
 }
 
 # Machine tool origin
@@ -37,6 +38,12 @@ parser = RNC::Parser.new(CFG).parse_file
 colors = {A:1, M:2, D:3, R:0}
 fmt = "%d %.3f %.5f %.3f %.3f %.3f %.3f %.3f %.3f %.3f %d"
 
+puts "=" * 79
+puts "Press SPACEBAR in viewer window to start"
+puts "=" * 79
+loop until (viewer.run)
+
+
 File.open("out.txt", "w") do |file|
   # Loop over all blocks
   file.puts "n t s r Xn Yn Zn X Y Z color"
@@ -44,7 +51,30 @@ File.open("out.txt", "w") do |file|
     puts "#{n}: #{block.inspect}"
     case block.type
     when :G00
-      next
+      m.go_to(block.target.map {|v| v / 1000.0})
+      error = m.error * 1000.0
+      t = 0
+      while (error >= CFG[:tolerance]) do
+        sleep_thread = Thread.new { sleep CFG[:tq] }
+        state = m.step!
+        state[:pos].map! {|v| v * 1000.0}
+        error = m.error * 1000.0
+        viewer.go_to state[:pos]
+        # prepare data array to be written in output file
+        dist = block.length - error
+        data = [
+          n, t, dist / block.length, dist,
+          block.target,
+          state[:pos],
+          colors[:R]
+        ].flatten
+        # write formatted data
+        file.puts fmt % data
+        t += CFG[:tq]
+        # wait for timing thread to end sleeping
+        sleep_thread.join
+      end
+      file.puts "\n\n"
     when :G01
       # Loop within a block with the given timestep
       block.each_timestep do |t, cmd|
@@ -71,9 +101,14 @@ File.open("out.txt", "w") do |file|
         sleep_thread.join
       end
       file.print "\n\n"
+    else
+      puts "Unknown ISO block type #{block.type}"
     end # case
   end # each_block
 end # File.open
 
-
+puts "=" * 79
+puts "Press SPACEBAR in viewer window to start"
+puts "=" * 79
+loop while (viewer.run)
 viewer.close
