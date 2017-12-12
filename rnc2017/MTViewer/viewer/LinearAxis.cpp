@@ -134,24 +134,25 @@ void LinearAxis::set_position(GLfloat val)
 }
 
 void LinearAxis::update_position() {
-  if (position != command.setpoint) {
-    auto now = high_resolution_clock::now();
-    auto elapsed = duration_cast<microseconds>(now - command.set_time).count()/1E6f;
-
-    // IMPLEMENT DYNAMICS HERE!!!
-    GLfloat temp = command.start_point + sign(command.setpoint - position) * params.max_speed * elapsed;
-    if (abs(temp-command.start_point) < abs(command.setpoint-command.start_point)) {
-      position = temp;
-    }
-    else {
-      position = command.setpoint;
-    }
-    
-    if (position <= limiter_left)
-      position = limiter_left;
-    else if (position >= length - limiter_right)
-      position = length - limiter_right;
-  }
+  // if (position != command.setpoint) {
+  //   auto now = high_resolution_clock::now();
+  //   auto elapsed = duration_cast<microseconds>(now - command.set_time).count()/1E6f;
+  //
+  //   // IMPLEMENT DYNAMICS HERE!!!
+  //   GLfloat temp = command.start_point + sign(command.setpoint - position) * params.max_speed * elapsed;
+  //   if (abs(temp-command.start_point) < abs(command.setpoint-command.start_point)) {
+  //     position = temp;
+  //   }
+  //   else {
+  //     position = command.setpoint;
+  //   }
+  //
+  //   if (position <= limiter_left)
+  //     position = limiter_left;
+  //   else if (position >= length - limiter_right)
+  //     position = length - limiter_right;
+  // }
+  position = command.setpoint;
 }
 
 void LinearAxis::set_rotation(GLfloat a, GLfloat x, GLfloat y, GLfloat z)
