@@ -48,22 +48,27 @@ File.open("out.txt", "w") do |file|
     when :G01
       # Loop within a block with the given timestep
       block.each_timestep do |t, cmd|
+        # start a separate thread that waits for CFG[:tq] seconds
+        sleep_thread = Thread.new { sleep CFG[:tq] }
         # update machine set-point
         m.go_to(cmd[:position].map {|v| v / 1000.0})
         # ask machine to forward-integrate the eq of dynamics for a timestep tq
         state = m.step!
         state[:pos].map! {|v| v * 1000.0}
         # update viewer position
-        viewer.go_to state[:pos]
         # save data to file
+        viewer.go_to state[:pos]
+        # prepare data array to be written in output file
         data = [
           n, t, cmd[:s], cmd[:r],
           cmd[:position],
           state[:pos],
           colors[cmd[:type]]
         ].flatten
+        # write formatted data
         file.puts fmt % data
-
+        # wait for timing thread to end sleeping
+        sleep_thread.join
       end
       file.print "\n\n"
     end # case
