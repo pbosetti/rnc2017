@@ -1,0 +1,12 @@
+# testing G-Code
+# Only G00, G01, X, Y, Z, F, and S are supported
+G00 X300 Y200 z350
+G00 x100 y100
+g00 z70
+g01 z50 F1000
+G01 x200 f2500
+g01 y180
+g01 X100
+g01 Y100
+G01 z100 f6000
+G00 z350 X300 Y200

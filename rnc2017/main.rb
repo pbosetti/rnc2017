@@ -13,10 +13,12 @@ end
 # Configuration hash
 CFG = {
   file_name: ARGV[0],
-  A: 10,
-  D: 15,
+  A: 200,
+  D: 300,
   tq: 0.005
 }
+
+VERBOSE = true
 
 # Machine tool origin
 ORIGIN = RNC::Point[0,0,0]
@@ -37,6 +39,11 @@ parser = RNC::Parser.new(CFG).parse_file
 colors = {A:1, M:2, D:3, R:0}
 fmt = "%d %.3f %.5f %.3f %.3f %.3f %.3f %.3f %.3f %.3f %d"
 
+puts "=" * 79
+puts "Press SPACEBAR in viewer window"
+puts "=" * 79
+loop until (viewer.run)
+
 File.open("out.txt", "w") do |file|
   # Loop over all blocks
   file.puts "n t s r Xn Yn Zn X Y Z color"
@@ -44,7 +51,31 @@ File.open("out.txt", "w") do |file|
     puts "#{n}: #{block.inspect}"
     case block.type
     when :G00
-      next
+      m.go_to(block.target.map {|v| v / 1000.0})
+      error = m.error * 1000
+      t = 0
+      while (error >= 0.005) do
+        sleep_thread = Thread.new { sleep CFG[:tq] }
+        state = m.step!
+        state[:pos].map! {|v| v * 1000.0}
+        error = m.error * 1000
+        viewer.go_to state[:pos]
+        dist = block.length - error
+        data = [
+          n, t, dist/block.length, dist,
+          block.target,
+          state[:pos],
+          colors[:R]
+        ].flatten
+        # write formatted data
+        output_str = fmt % data
+        file.puts output_str
+        puts output_str if VERBOSE
+        t += CFG[:tq]
+        # wait for timing thread to end sleeping
+        sleep_thread.join
+      end
+      file.print "\n\n"
     when :G01
       # Loop within a block with the given timestep
       block.each_timestep do |t, cmd|
@@ -66,7 +97,9 @@ File.open("out.txt", "w") do |file|
           colors[cmd[:type]]
         ].flatten
         # write formatted data
-        file.puts fmt % data
+        output_str = fmt % data
+        file.puts output_str
+        puts output_str if VERBOSE
         # wait for timing thread to end sleeping
         sleep_thread.join
       end
@@ -75,5 +108,9 @@ File.open("out.txt", "w") do |file|
   end # each_block
 end # File.open
 
+puts "=" * 79
+puts "Press SPACEBAR in viewer window"
+puts "=" * 79
+loop while (viewer.run)
 
 viewer.close
